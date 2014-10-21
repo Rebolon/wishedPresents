@@ -65,23 +65,6 @@ var deleteList = function(list) {
   }
 };
 
-var toggleListPrivacy = function(list) {
-  if (! Meteor.user()) {
-    return alert("Please sign in or create an account to make private lists.");
-  }
-
-  if (list.userId) {
-    Lists.update(list._id, {$unset: {userId: true}});
-  } else {
-    // ensure the last public list cannot be made private
-    if (Lists.find({userId: {$exists: false}}).count() === 1) {
-      return alert("Sorry, you cannot make the final public list private!");
-    }
-
-    Lists.update(list._id, {$set: {userId: Meteor.userId()}});
-  }
-};
-
 Template.listsShow.events({
   'click .js-cancel': function() {
     Session.set(EDITING_KEY, false);
@@ -127,10 +110,6 @@ Template.listsShow.events({
   
   'click .js-edit-list': function(event, template) {
     editList(this, template);
-  },
-  
-  'click .js-toggle-list-privacy': function(event, template) {
-    toggleListPrivacy(this, template);
   },
   
   'click .js-delete-list': function(event, template) {

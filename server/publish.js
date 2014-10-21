@@ -1,13 +1,5 @@
 Meteor.publish('publicLists', function() {
-  return Lists.find({userId: {$exists: false}});
-});
-
-Meteor.publish('privateLists', function() {
-  if (this.userId) {
-    return Lists.find({userId: this.userId});
-  } else {
-    this.ready();
-  }
+  return Lists.find();
 });
 
 Meteor.publish('todos', function(listId) {
