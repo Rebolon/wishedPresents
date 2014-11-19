@@ -15,6 +15,7 @@
 
         <h1 class="js-edit-list title-page"><span class="title-wrapper">{{name}}</span> <span class="count-list">{{incompleteCount}}</span></h1>
 
+        {{#if currentUser}}
         <div class="nav-group right">
           <div class="nav-item options-mobile">
             <select class="list-edit">
@@ -29,14 +30,16 @@
             </a>
           </div>
         </div>
+        {{/if}}
       {{/if}}
 
+      {{#if currentUser}}
       <form class="js-todo-new todo-new input-symbol">
         <input type="text" placeholder="Type to add new tasks">
         <span class="icon-add js-todo-add"></span>
       </form>
+      {{/if}}
     </nav>
-
 
     <div class="content-scrollable list-items">
       {{#if todosReady}}

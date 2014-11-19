@@ -1,7 +1,5 @@
 var collectionsCheck = {
   "onlyConnected": function(userId, doc) {
-    console.log(arguments);
-    
     if (!userId) return false;
     
     doc.ownerId = userId;
@@ -10,8 +8,6 @@ var collectionsCheck = {
   },
   
   "onlyOwner": function(userId, doc) {
-    console.log(arguments);
-    
     if (userId
         && userId == doc.ownerId) return true;
     
@@ -23,8 +19,7 @@ Lists.allow({
   "insert": collectionsCheck.onlyConnected,
   
   "update": function(userId, doc, fieldNames, modifier) {
-    console.log(arguments);
-    
+    console.log("update", arguments);
     if (userId
        && userId == doc.userId) return true;
     
@@ -38,8 +33,6 @@ Todos.allow({
   "insert": collectionsCheck.onlyConnected,
   
   "update": function(userId, doc, fieldNames, modifier) {
-    console.log(arguments);
-    
     if (!userId) return false;
     
     if (!doc.userIds) doc.userIds = [];

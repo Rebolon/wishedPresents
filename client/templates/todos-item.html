@@ -10,6 +10,8 @@
     
 
     <input type="text" value="{{text}}" placeholder="Task name">
+    {{#if currentUser}}
     <a class="js-delete-item delete-item" href="#"><span class="icon-trash"></span></a>
+    {{/if}}
   </div>
 </template>

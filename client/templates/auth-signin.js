@@ -14,6 +14,28 @@ Template.signin.helpers({
 });
 
 Template.signin.events({
+  'submit.signinGoogle' : function(event, template) {
+    event.preventDefault();
+    
+    Meteor.loginWithGoogle({}, function(error) {
+      if (error) {
+        return Session.set(ERRORS_KEY, {'none': error.reason});
+      }
+      
+      Router.go('home');
+    });
+  },
+  'submit.signinFacebook' : function(event, template) {
+    event.preventDefault();
+    
+    Meteor.loginWithFacebook({}, function(error) {
+      if (error) {
+        return Session.set(ERRORS_KEY, {'none': error.reason});
+      }
+      
+      Router.go('home');
+    });
+  }/*,
   'submit': function(event, template) {
     event.preventDefault();
     
@@ -42,5 +64,5 @@ Template.signin.events({
       
       Router.go('home');
     });
-  }
+  }*/
 });

@@ -1,0 +1,15 @@
+<template name="notificationsShow">
+  <div class="page notifs-show">
+    <div class="content-scrollable notifs-items">
+      {{#if notifsReady}}
+        {{#each notifs}}
+          {{> notifsItem}}
+        {{/each}}
+      {{else}}
+          <div class="wrapper-message">
+            <div class="title-message">Loading notifs...</div>
+          </div>
+      {{/if}}
+    </div>
+  </div>
+</template>

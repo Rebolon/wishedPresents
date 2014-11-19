@@ -7,3 +7,7 @@ standard-app-packages
 less
 iron:router
 accounts-password
+accounts-google
+service-configuration
+accounts-facebook
+

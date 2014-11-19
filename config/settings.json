@@ -1,0 +1,13 @@
+{
+  "public": {
+  },
+
+  "app": {
+    "owner": {
+      "email": "richard.tribes@gmail.com",
+      "lastname": "richard",
+      "firstname": "benjamin",
+      "key": "yoman"
+    }
+  }
+}

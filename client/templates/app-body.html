@@ -24,8 +24,10 @@
       {{/if}}
 
       <div class="list-todos">
+        {{#if currentUser}}
         <a class="js-new-list link-list-new"><span class="icon-plus"></span>New List</a>
-
+        {{/if}}
+        
         {{#each lists}}
           <a href="{{pathFor 'listsShow'}}" class="list-todo {{activeListClass}}" title="{{name}}">
             {{#if userId}}
